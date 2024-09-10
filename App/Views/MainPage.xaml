@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage
+    x:Class="App.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:App.Core.ViewModels;assembly=App.Core"
+    xmlns:views="clr-namespace:App.Views"
+    x:DataType="viewmodel:MainPageViewModel">
+    <Grid RowDefinitions="*,6*,*">
+        <Button
+            Margin="20,0"
+            Command="{Binding LogoutCommand}"
+            HorizontalOptions="End"
+            Text="Logout" />
+        <Grid Grid.Row="1" RowDefinitions="5*,*,*,5*">
+            <Label
+                Grid.Row="1"
+                Style="{StaticResource TitleLabel}"
+                Text="Welcome" />
+            <Label
+                Grid.Row="2"
+                Style="{StaticResource TitleLabel}"
+                Text="{Binding Name}" />
+        </Grid>
+        <HorizontalStackLayout
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            Spacing="10">
+            <Button
+                Command="{Binding GoToProfileCommand}"
+                Style="{StaticResource TabButton}"
+                Text="Profile" />
+            <Button Style="{StaticResource TabButton}" Text="2" />
+            <Button Style="{StaticResource TabButton}" Text="3" />
+        </HorizontalStackLayout>
+    </Grid>
+</views:BasePage> 
